@@ -4,17 +4,17 @@ int n = InputNumbers("Какое количество строк треугол�
 
 double[,] PTriangle = new double[n + 1, 2 * n + 1];
 
-FillPTriangle(PTriangle);
+linesPTriangle(PTriangle);
 
 Console.WriteLine();
 WriteArray(PTriangle);
 
-TransformPTriangle(PTriangle);
+ModifiedPTriangle(PTriangle);
 
 Console.WriteLine();
 WriteArray(PTriangle);
 
-void TransformPTriangle(double[,] array)
+void ModifiedPTriangle(double[,] array)
 {
   for (int i = 0; i < array.GetLength(0); i++)
   {
@@ -32,7 +32,7 @@ void TransformPTriangle(double[,] array)
   array[array.GetLength(0) - 1, 0] = 1;
 }
 
-void FillPTriangle(double[,] PTriangle)
+void linesPTriangle(double[,] PTriangle)
 {
   for (int k = 0; k < PTriangle.GetLength(0); k++)
   {
