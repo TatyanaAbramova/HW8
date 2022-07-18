@@ -1,10 +1,10 @@
 ﻿// Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 
-Console.WriteLine($"\nВведите размеры матриц и диапазон случайных значений:");
+Console.WriteLine($"\nВведите размеры матриц и диапазон значений элементов:");
 int m = InputNumbers("Введите число строк 1-й матрицы: ");
 int n = InputNumbers("Введите число столбцов 1-й матрицы (и строк 2-й): ");
 int p = InputNumbers("Введите число столбцов 2-й матрицы: ");
-int range = InputNumbers("Введите диапазон случайных чисел: от 1 до ");
+int range = InputNumbers("Введите диапазон значений элементов: от 1 до ");
 
 int[,] firstMartrix = new int[m, n];
 CreateArray(firstMartrix);
@@ -16,24 +16,24 @@ CreateArray(secomdMartrix);
 Console.WriteLine($"\nВторая матрица:");
 WriteArray(secomdMartrix);
 
-int[,] resultMatrix = new int[m,p];
+int[,] composMatrix = new int[m,p];
 
-MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
-Console.WriteLine($"\nПроизведение первой и второй матриц:");
-WriteArray(resultMatrix);
+MultiplyMatrix(firstMartrix, secomdMartrix, composMatrix);
+Console.WriteLine($"\nПроизведение матриц:");
+WriteArray(composMatrix);
 
-void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] composMatrixx)
 {
-  for (int i = 0; i < resultMatrix.GetLength(0); i++)
+  for (int i = 0; i < composMatrix.GetLength(0); i++)
   {
-    for (int j = 0; j < resultMatrix.GetLength(1); j++)
+    for (int j = 0; j < composMatrix.GetLength(1); j++)
     {
       int sum = 0;
       for (int k = 0; k < firstMartrix.GetLength(1); k++)
       {
         sum += firstMartrix[i,k] * secomdMartrix[k,j];
       }
-      resultMatrix[i,j] = sum;
+      composMatrix[i,j] = sum;
     }
   }
 }
@@ -62,7 +62,7 @@ void WriteArray (int[,] array)
   {
     for (int j = 0; j < array.GetLength(1); j++)
     {
-      Console.Write(array[i,j] + " ");
+      Console.Write(array[i,j] + "    ");
     }
     Console.WriteLine();
   }

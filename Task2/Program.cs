@@ -1,6 +1,6 @@
 ﻿// Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
-Console.WriteLine($"\nВведите размер массива m x n и диапазон случайных значений:");
+Console.WriteLine($"\nВведите размер массива m x n и диапазон значений элементов:");
 int m = InputNumbers("Введите m: ");
 int n = InputNumbers("Введите n: ");
 int range = InputNumbers("Введите диапазон: от 1 до ");
@@ -10,10 +10,10 @@ CreateArray(array);
 WriteArray(array);
 
 int minSumLine = 0;
-int sumLine = SumLineElements(array, 0);
+int sumLine = SumLineEl(array, 0);
 for (int i = 1; i < array.GetLength(0); i++)
 {
-  int tempSumLine = SumLineElements(array, i);
+  int tempSumLine = SumLineEl(array, i);
   if (sumLine > tempSumLine)
   {
     sumLine = tempSumLine;
@@ -21,10 +21,10 @@ for (int i = 1; i < array.GetLength(0); i++)
   }
 }
 
-Console.WriteLine($"\n{minSumLine+1} - строкa с наименьшей суммой ({sumLine}) элементов ");
+Console.WriteLine($"\n{minSumLine+1} - строкa с наименьшей суммой элементов.");
+Console.WriteLine($"Сумма элементов равна: {sumLine}");
 
-
-int SumLineElements(int[,] array, int i)
+int SumLineEl(int[,] array, int i)
 {
   int sumLine = array[i,0];
   for (int j = 1; j < array.GetLength(1); j++)
@@ -58,7 +58,7 @@ void WriteArray (int[,] array)
   {
     for (int j = 0; j < array.GetLength(1); j++)
     {
-      Console.Write(array[i,j] + " ");
+      Console.Write(array[i,j] + "    ");
     }
     Console.WriteLine();
   }

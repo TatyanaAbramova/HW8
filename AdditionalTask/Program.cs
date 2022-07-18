@@ -1,20 +1,20 @@
 ﻿// Вывести первые N строк треугольника Паскаля. Сделать вывод в виде равнобедренного треугольника
 
-int n = InputNumbers("Введите количество строк: ");
+int n = InputNumbers("Какое количество строк треугольника вывести на экран: ");
 
-double[,] pascalTriangle = new double[n + 1, 2 * n + 1];
+double[,] PTriangle = new double[n + 1, 2 * n + 1];
 
-FillPascalTriangle(pascalTriangle);
-
-Console.WriteLine();
-WriteArray(pascalTriangle);
-
-TransformationPascalTriangle(pascalTriangle);
+FillPTriangle(PTriangle);
 
 Console.WriteLine();
-WriteArray(pascalTriangle);
+WriteArray(PTriangle);
 
-void TransformationPascalTriangle(double[,] array)
+TransformPTriangle(PTriangle);
+
+Console.WriteLine();
+WriteArray(PTriangle);
+
+void TransformPTriangle(double[,] array)
 {
   for (int i = 0; i < array.GetLength(0); i++)
   {
@@ -32,17 +32,17 @@ void TransformationPascalTriangle(double[,] array)
   array[array.GetLength(0) - 1, 0] = 1;
 }
 
-void FillPascalTriangle(double[,] pascalTriangle)
+void FillPTriangle(double[,] PTriangle)
 {
-  for (int k = 0; k < pascalTriangle.GetLength(0); k++)
+  for (int k = 0; k < PTriangle.GetLength(0); k++)
   {
-    pascalTriangle[k, 0] = 1;
+    PTriangle[k, 0] = 1;
   }
-  for (int i = 1; i < pascalTriangle.GetLength(0); i++)
+  for (int i = 1; i < PTriangle.GetLength(0); i++)
   {
     for (int j = 1; j < i + 1; j++)
     {
-      pascalTriangle[i, j] = pascalTriangle[i - 1, j] + pascalTriangle[i - 1, j - 1];
+      PTriangle[i, j] = PTriangle[i - 1, j] + PTriangle[i - 1, j - 1];
     }
   }
 }

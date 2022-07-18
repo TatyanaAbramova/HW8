@@ -7,9 +7,9 @@ int y = InputNumbers("Введите Y: ");
 int z = InputNumbers("Введите Z: ");
 Console.WriteLine($"");
 
-int[,,] array3D = new int[x, y, z];
-CreateArray(array3D);
-WriteArray(array3D);
+int[,,] arrayMass = new int[x, y, z];
+CreateArray(arrayMass);
+WriteArray(arrayMass);
 
 int InputNumbers(string input)
 {
@@ -18,16 +18,16 @@ int InputNumbers(string input)
   return output;
 }
 
-void WriteArray (int[,,] array3D)
+void WriteArray (int[,,] arrayMass)
 {
-  for (int i = 0; i < array3D.GetLength(0); i++)
+  for (int i = 0; i < arrayMass.GetLength(0); i++)
   {
-    for (int j = 0; j < array3D.GetLength(1); j++)
+    for (int j = 0; j < arrayMass.GetLength(1); j++)
     {
       Console.Write($"X({i}) Y({j}) ");
-      for (int k = 0; k < array3D.GetLength(2); k++)
+      for (int k = 0; k < arrayMass.GetLength(2); k++)
       {
-        Console.Write( $"Z({k})={array3D[i,j,k]}; ");
+        Console.Write( $"Z({k})={arrayMass[i,j,k]}; ");
       }
       Console.WriteLine();
     }
@@ -35,9 +35,9 @@ void WriteArray (int[,,] array3D)
   }
 }
 
-void CreateArray(int[,,] array3D)
+void CreateArray(int[,,] arrayMass)
 {
-  int[] temp = new int[array3D.GetLength(0) * array3D.GetLength(1) * array3D.GetLength(2)];
+  int[] temp = new int[arrayMass.GetLength(0) * arrayMass.GetLength(1) * arrayMass.GetLength(2)];
   int  number;
   for (int i = 0; i < temp.GetLength(0); i++)
   {
@@ -58,13 +58,13 @@ void CreateArray(int[,,] array3D)
     }
   }
   int count = 0; 
-  for (int x = 0; x < array3D.GetLength(0); x++)
+  for (int x = 0; x < arrayMass.GetLength(0); x++)
   {
-    for (int y = 0; y < array3D.GetLength(1); y++)
+    for (int y = 0; y < arrayMass.GetLength(1); y++)
     {
-      for (int z = 0; z < array3D.GetLength(2); z++)
+      for (int z = 0; z < arrayMass.GetLength(2); z++)
       {
-        array3D[x, y, z] = temp[count];
+        arrayMass[x, y, z] = temp[count];
         count++;
       }
     }
